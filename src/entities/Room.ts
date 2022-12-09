@@ -1,14 +1,27 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany} from 'typeorm';
-import { Video } from './Video';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  ManyToMany,
+} from "typeorm";
+import { Subject } from "./Subject";
+import { Video } from "./Video";
 
-@Entity('rooms')
+@Entity("rooms")
 export class Room {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'text' })
+  @Column({ type: "text" })
   name: string;
 
-  @OneToMany(() => Video, video => video.room) //Um para muitos 
-  videos: Video[]
+  @Column({ type: "text", nullable: true })
+  description: string;
+
+  @OneToMany(() => Video, (video) => video.room) //Um para muitos
+  videos: Video[];
+
+  @ManyToMany(() => Subject, (subject) => subject.rooms) //muitos para muitos
+  subjects: Subject[];
 }
