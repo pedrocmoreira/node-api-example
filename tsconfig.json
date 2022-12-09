@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"target": "es2018", //versão do código do javascript que vai ser gerada no build
+		"lib": ["es5", "es6", "ES2018"], //Conjunto de bibliotecas, para que o javascript entenda que estarei utilizando essas bibliotescas
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"outDir": "./dist", //nome da pasta que vai ser gerado o javascript
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitAny": true, //Força a tipagem
+		"strictPropertyInitialization": false
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist"],
+	"ts-node": {
+		"files": true
+	}
+}

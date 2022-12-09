@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  database_ignite:
+    image: postgres
+    container_name: database_api_rest
+    restart: always 
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgress
+      - POSTGRES_PASSWORD=postgress
+      - POSTGRES_DB=postgress
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
